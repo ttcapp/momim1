@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -29,21 +30,40 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
         centerTitle: true,
-        title: Text("momin"),
+        title: Text("MOMIN"),
       ),
-      body: Column(
-        children: [
-          RaisedButton(
-            child: Text(btnText),
-              color: Colors.amber,
-              onPressed: (){
-              setState(() {
-                btnText="one";
-              });
-          }
-          )
-        ],
-      ),
+      body:
+      SingleChildScrollView(
+        child:       Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              RaisedButton(
+                  child: Text(btnText),
+                  color: Colors.amber,
+                  onPressed: (){
+                    setState(() {
+                      btnText="one click";
+                    });
+                  }
+              ),
+              Container(
+                height: 200,
+                  width: 150,
+                  child: Image.network("https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg"
+                  )),
+              Container(
+                  height: 200,
+                  width: 150,
+                  child:
+                  Image.asset("assets/images/images1.jpg"),
+              ),
+            ],
+          ),
+        ),
+      )
     );
   }
 }
